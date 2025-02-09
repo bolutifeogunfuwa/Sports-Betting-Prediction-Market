@@ -14,3 +14,5 @@
 tsconfig.json,6/1/61ebb9fd6e8cf9082658121d5d81e297791dacd0
 @
 vitest.config.js,e/0/e07f8ead7c602b60a2232e5ffe6110c6ee0d3968
+M
+contracts/event-creation.clar,e/4/e42b236b6d660822c22d7eacbe55e7a3ca04cc8d
