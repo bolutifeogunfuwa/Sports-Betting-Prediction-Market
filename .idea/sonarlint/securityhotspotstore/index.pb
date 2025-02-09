@@ -22,3 +22,5 @@ O
 contracts/odds-calculation.clar,3/d/3d7618ffbbecc899776118dfa750fcd6f753700c
 N
 tests/odds-calculation.test.ts,3/e/3e015943d8f9c14b69897fa03ace98989ae3daa1
+F
+contracts/betting.clar,a/d/adfa2d5c5ca8387413ecafeb8ed0efe858182285

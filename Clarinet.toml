@@ -5,6 +5,11 @@ authors = []
 telemetry = true
 cache_dir = './.cache'
 requirements = []
+[contracts.betting]
+path = 'contracts/betting.clar'
+clarity_version = 2
+epoch = 2.5
+
 [contracts.event-creation]
 path = 'contracts/event-creation.clar'
 clarity_version = 2
