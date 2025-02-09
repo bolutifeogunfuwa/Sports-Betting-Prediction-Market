@@ -20,3 +20,5 @@ L
 tests/event-creation.test.ts,a/c/ace613ab79a20d88cd0a88eae4ed7034b2f77fcd
 O
 contracts/odds-calculation.clar,3/d/3d7618ffbbecc899776118dfa750fcd6f753700c
+N
+tests/odds-calculation.test.ts,3/e/3e015943d8f9c14b69897fa03ace98989ae3daa1
