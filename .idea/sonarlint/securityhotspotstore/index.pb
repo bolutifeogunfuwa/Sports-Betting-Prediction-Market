@@ -14,3 +14,15 @@
 tsconfig.json,6/1/61ebb9fd6e8cf9082658121d5d81e297791dacd0
 @
 vitest.config.js,e/0/e07f8ead7c602b60a2232e5ffe6110c6ee0d3968
+M
+contracts/event-creation.clar,e/4/e42b236b6d660822c22d7eacbe55e7a3ca04cc8d
+L
+tests/event-creation.test.ts,a/c/ace613ab79a20d88cd0a88eae4ed7034b2f77fcd
+O
+contracts/odds-calculation.clar,3/d/3d7618ffbbecc899776118dfa750fcd6f753700c
+N
+tests/odds-calculation.test.ts,3/e/3e015943d8f9c14b69897fa03ace98989ae3daa1
+F
+contracts/betting.clar,a/d/adfa2d5c5ca8387413ecafeb8ed0efe858182285
+E
+tests/betting.test.ts,5/6/56051513df632ba537561a7862c3904687b6ccb1
