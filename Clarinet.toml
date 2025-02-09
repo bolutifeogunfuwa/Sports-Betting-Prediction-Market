@@ -9,6 +9,11 @@ requirements = []
 path = 'contracts/event-creation.clar'
 clarity_version = 2
 epoch = 2.5
+
+[contracts.odds-calculation]
+path = 'contracts/odds-calculation.clar'
+clarity_version = 2
+epoch = 2.5
 [repl.analysis]
 passes = ['check_checker']
 
