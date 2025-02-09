@@ -16,3 +16,5 @@
 vitest.config.js,e/0/e07f8ead7c602b60a2232e5ffe6110c6ee0d3968
 M
 contracts/event-creation.clar,e/4/e42b236b6d660822c22d7eacbe55e7a3ca04cc8d
+L
+tests/event-creation.test.ts,a/c/ace613ab79a20d88cd0a88eae4ed7034b2f77fcd

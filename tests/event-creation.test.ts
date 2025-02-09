@@ -1,21 +1,68 @@
+import { describe, it, expect, beforeEach } from "vitest"
 
-import { describe, expect, it } from "vitest";
+// Mock storage for events
+const events = new Map()
+let nextEventId = 1
 
-const accounts = simnet.getAccounts();
-const address1 = accounts.get("wallet_1")!;
+// Mock functions to simulate contract behavior
+function createEvent(creator: string, description: string, startTime: number, endTime: number) {
+  const eventId = nextEventId++
+  events.set(eventId, { creator, description, startTime, endTime, status: "upcoming" })
+  return eventId
+}
 
-/*
-  The test below is an example. To learn more, read the testing documentation here:
-  https://docs.hiro.so/stacks/clarinet-js-sdk
-*/
+function cancelEvent(eventId: number, sender: string) {
+  const event = events.get(eventId)
+  if (!event) throw new Error("Event not found")
+  if (event.creator !== sender) throw new Error("Unauthorized")
+  if (event.status !== "upcoming") throw new Error("Cannot cancel non-upcoming event")
+  event.status = "cancelled"
+  events.set(eventId, event)
+  return true
+}
 
-describe("example tests", () => {
-  it("ensures simnet is well initalised", () => {
-    expect(simnet.blockHeight).toBeDefined();
-  });
+function getEvent(eventId: number) {
+  return events.get(eventId)
+}
 
-  // it("shows an example", () => {
-  //   const { result } = simnet.callReadOnlyFn("counter", "get-counter", [], address1);
-  //   expect(result).toBeUint(0);
-  // });
-});
+function getEventStatus(eventId: number) {
+  const event = events.get(eventId)
+  if (!event) throw new Error("Event not found")
+  return event.status
+}
+
+describe("Event Creation Contract", () => {
+  beforeEach(() => {
+    events.clear()
+    nextEventId = 1
+  })
+  
+  it("should create an event", () => {
+    const eventId = createEvent("creator1", "Football Match", 1625097600, 1625184000)
+    expect(eventId).toBe(1)
+    const event = getEvent(eventId)
+    expect(event).toBeDefined()
+    expect(event.description).toBe("Football Match")
+    expect(event.status).toBe("upcoming")
+  })
+  
+  it("should cancel an event", () => {
+    const eventId = createEvent("creator1", "Football Match", 1625097600, 1625184000)
+    const result = cancelEvent(eventId, "creator1")
+    expect(result).toBe(true)
+    const cancelledEvent = getEvent(eventId)
+    expect(cancelledEvent.status).toBe("cancelled")
+  })
+  
+  it("should not allow unauthorized cancellation", () => {
+    const eventId = createEvent("creator1", "Football Match", 1625097600, 1625184000)
+    expect(() => cancelEvent(eventId, "unauthorized")).toThrow("Unauthorized")
+  })
+  
+  it("should get event status", () => {
+    const eventId = createEvent("creator1", "Football Match", 1625097600, 1625184000)
+    const status = getEventStatus(eventId)
+    expect(status).toBe("upcoming")
+  })
+})
+
